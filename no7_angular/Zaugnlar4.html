@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app><!--初始化（调用）的指令 没有angular不会执行--> <!--以 ng- 开头的属性叫【指令】 完成一些功能 -->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="ZJs/angular.js"></script>
+
+    <script>
+        function Aaa($scope,$timeout){ // angular形参不能传参；形参有自带的参数-依赖注入（服务-功能）；
+            $scope.name='hello';
+
+            /*setTimeout(function(){   // angular不支持原生setTimeout;
+                $scope.name='hi';
+            },1000);*/
+
+            /*$timeout(function(){
+                $scope.name='hi';
+            },1000);*/
+
+            $scope.show=function(){
+                $scope.name='yes';
+            }
+
+        }
+    </script>
+    
+</head>
+<body>
+    <!--<div ng-controller="Aaa" ng-click="name='world'">-->   <!--[controller]-->
+    <div ng-controller="Aaa" ng-click="show()">   <!--[controller] -->
+        <p>{{name}}</p>
+    </div>
+</body>
+</html>

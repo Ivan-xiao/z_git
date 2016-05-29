@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.7.2.js"></script>
+
+    <script>
+        /*往$.fn上面添加一个方法，名字是插件名称; 在这里面,this指的是用jQuery选中的元素; this=$('a')*/
+
+        $.fn.myPlugIn=function(options){
+            var defaults={
+                'color':'red',
+                'fontSize':'16px'
+            };
+
+            //在处理插件参数的接收上，通常使用jQuery的extend方法，对象会合并到jQuery身上,再在jQuery身上调用新合并对象里包含的方法；当给extend方法传递一个以上的参数时，它会将所有参数对象合并到第一个里。同时，如果对象中有同名属性时，合并的时候后面的会覆盖前面的; 接收来的新参数对象合并到默认对象上;
+
+            var settings= $.extend({},defaults,options);  //{},添加一个空对象防止默认值被覆盖；
+
+            return this.css({
+                'color': settings.color,
+                'fontSize': settings.fontSize,
+                'fontWeight':settings.fontWeight  // 接收来的新参数对象合并到默认对象上;
+            });
+        };
+    </script>
+
+    <script>
+        $(function(){
+            $('a').myPlugIn({
+                'color': '#2C9929',
+                'fontWeight':'bold'
+            });
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>
+        <a href="http://www.webo.com/liuwayong">我的微博</a>
+    </li>
+    <li>
+        <a href="http://http://www.cnblogs.com/Wayou/">我的博客</a>
+    </li>
+    <li>
+        <a href="http://wayouliu.duapp.com/">我的小站</a>
+    </li>
+</ul>
+</body>
+</html>

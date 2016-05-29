@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp"><!--初始化（调用）的指令 没有angular不会执行--> <!--以 ng- 开头的属性叫【指令】 完成一些功能 -->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="ZJs/angular.js"></script>
+
+    <script>
+        var m1=angular.module('myApp',[]);
+        m1.controller('Aaa',['$scope','$filter',function($scope,$filter){
+
+            var oriArr=[
+                {name:'red',age:'10'},
+                {name:'grey',age:'30'},
+                {name:'blue',age:'60'},
+                {name:'yellow',age:'50'}
+            ];
+
+            $scope.dataList=oriArr; // 不改变原始数据；
+
+            $scope.fnSort=function(arg){ // 函数是对象，可以挂载属性；
+                arguments.callee['fnSort'+arg]=!arguments.callee['fnSort'+arg];/*arguments.callee在内部找到函数挂载arg； fnSort+防止与系统自带的属性名冲突*/
+                $scope.dataList=$filter('orderBy')($scope.dataList,arg,arguments.callee['fnSort'+arg]); //orderBy排序；
+            };
+
+            // 搜索；
+            $scope.fnFilter=function(){
+                $scope.dataList=$filter('filter')(oriArr,$scope.filterVal);
+                // 赋值操作会改会原来的值；
+            };
+        }]);
+    </script>
+
+</head>
+<body>
+    <div ng-controller="Aaa">
+        <input type="text" ng-model="filterVal"/><input type="button" ng-click="fnFilter()" value="搜索"/>
+
+        <table border="1">
+            <tr>
+                <th ng-click="fnSort('name')">name</th> <!--传参-->
+                <th ng-click="fnSort('age')">age</th>
+            </tr>
+            <tr ng-repeat="data in dataList">   <!--in 遍历-->
+                <td>{{data.name}}</td>
+                <td>{{data.age}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

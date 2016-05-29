@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app> <!--引模块的写法；m1 被调用；-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="ZJs/angular.js"></script>
+
+    <script>
+        // angular.bind();   //$proxy();  改变this的指向；
+
+        /*function show(n1,n2){
+            alert(n1);
+            alert(n2);
+            alert(this);
+        }
+
+        //show();
+        angular.bind(document,show)(1,2);
+        angular.bind(document,show,1,2)();
+        angular.bind(document,show,1)(2);*/
+
+
+        //angular.copy();  // 拷贝对象；
+
+        /*var a={
+            name:'hello'
+        };
+        var b={
+            age:'20'
+        };
+
+        var c=angular.copy(a,b); //a把所有值覆盖给力b;
+        console.log(b);*/
+
+        // angular.extend();  //  对象继承；
+
+         var a={
+            name:'hello'
+         };
+         var b={
+            age:'20'
+         };
+
+        var c=angular.extend(b,a);
+
+        console.log(b);
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layPage demo</title>
+    <meta name="keywords" content="分页插件,ajax分页,异步分页">
+    <meta name="description" content="laypage是一款多功能的js分页组件">
+    <!--<link rel="stylesheet" href="css/base.css"/>-->
+</head>
+<body>
+    <ul id="biuuu_city_list">
+        <li>南昌</li>
+        <li>南昌</li>
+        <li>南昌</li>
+        <li>南昌</li>
+        <li>南昌</li>
+        <li>南昌</li>
+        <li>南昌</li>
+        <li>南昌</li>
+        <li>南昌</li>
+    </ul>
+    <div id="biuuu_city">
+        <div name="laypage1.3" class="laypage_main laypageskin_default" id="laypage_0">
+            <a href="javascript:;" class="laypage_prev" data-page="2">上一页</a>
+            <a href="javascript:;" data-page="1">1</a>
+            <a href="javascript:;" data-page="2">2</a>
+            <span class="laypage_curr">3</span>
+            <a href="javascript:;" data-page="4">4</a>
+            <a href="javascript:;" data-page="5">5</a>
+            <span>…</span>
+            <a href="javascript:;" class="laypage_last" title="尾页" data-page="8">尾页</a>
+            <a href="javascript:;" class="laypage_next" data-page="4">下一页</a>
+        </div>
+    </div>
+
+<script src="js/laypage/laypage.js"></script>
+<script>
+    //测试数据
+    var data = [
+        '北京',
+        '上海',
+        '广州',
+        '深圳',
+        '杭州',
+        '长沙',
+        '合肥',
+        '宁夏',
+        '成都',
+        '西安',
+        '南昌',
+        '上饶',
+        '沈阳',
+        '济南',
+        '厦门',
+        '福州',
+        '九江',
+        '宜春',
+        '赣州',
+        '宁波',
+        '绍兴',
+        '无锡',
+        '苏州',
+        '徐州',
+        '东莞',
+        '佛山',
+        '中山',
+        '成都',
+        '武汉',
+        '青岛',
+        '天津',
+        '重庆',
+        '南京',
+        '九江',
+        '香港',
+        '澳门',
+        '台北'
+    ];
+    var nums = 10; // 每页出现的数量
+    var pages = Math.ceil(data.length/nums); // 得到总页数；
+
+    var thisDate = function(curr){
+        //此处只是演示，实际场景通常是返回当前页已经分组好的数据；
+        var str = '', last = curr*nums - 1;
+        last = last >= data.length ? (data.length-1) : last;
+        for(var i = (curr*nums - nums); i <= last; i++){
+            str += '<li>'+ data[i] +'</li>';
+        }
+        return str;
+    };
+
+    //调用分页
+    laypage({
+        cont: 'biuuu_city',
+        pages: pages,
+        jump: function(obj){
+            document.getElementById('biuuu_city_list').innerHTML = thisDate(obj.curr);
+        }
+    })
+</script>
+
+</body>
+</html>

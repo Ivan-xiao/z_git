@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="ZJs/angular.js"></script>
+
+    <script>
+        function Aaa($scope,$timeout){ // angular形参不能传参；形参有自带的参数-依赖注入（服务-功能）；
+            $scope.name='hello';
+
+            setTimeout(function(){   // angular不支持原生setTimeout;
+                //$scope.name='hi';
+                $scope.$apply(function(){  //可以用在第三方的库或原生;
+                    $scope.name='hi';
+                });
+            },1000);
+
+            /*$timeout(function(){
+                $scope.name='hi';
+            },1000);
+
+            $scope.show=function(){
+                $scope.name='yes';
+            }*/
+
+        }
+    </script>
+    
+</head>
+<body>
+    <div ng-controller="Aaa">   <!--[controller] -->
+        <p>{{name}}</p>
+    </div>
+</body>
+</html>

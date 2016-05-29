@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+    <!--<script src="ZJs/angular.js"></script>-->
+    <script src="ZJs/AngularJS v1.4.9.js"></script>
+
+    <script>
+        var m1=angular.module('myApp',[]);
+
+        m1.controller('Aaa',['$scope',function($scope){
+            $scope.dataList=[
+                'a1', 'b2', 'c3', 'd4', 'e5'
+            ];
+        }]);
+    </script>
+
+</head>
+<body>
+    <div ng-controller="Aaa">
+        <input type="checkbox" ng-model="aaa"/>
+        <select name="" id="">
+            <option value="">1111</option>
+            <option ng-selected="aaa" value="">2222</option>  <!--selected-->
+        </select>
+
+        <!---->
+        <input type="text" ng-change="bbb='hello'" ng-model="bbb"/>{{bbb}} <!--change model 两个一起写才起作用；--><br>
+
+        <input type="text" value="hello world" ng-copy="ccc=true"/>{{ccc}} <!---->
+        <input type="text" value="hello world" ng-cut="ccc=true"/>{{ccc}} <!---->
+        <input type="text" value="hello world" ng-paste="ccc=true"/>{{ccc}} <!---->
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

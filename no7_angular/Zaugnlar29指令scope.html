@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 div, #div2 div{ width:200px; height:200px; border:1Px solid red; display: none;}
+        #div1 input.active,  #div2 input.active{ background:red;}
+    </style>
+
+    <script src="ZJs/AngularJS v1.4.9.js"></script>
+
+    <script>
+        var m1=angular.module('myApp',[]);
+            m1.directive('myTab',function(){     // 创建新的指令；接收两个参数；
+                return {
+                    restrict: 'E',            //属性指令；/class / ； 字母大写；
+                    replace:'true',
+                    //scope:true,    // 作用域独立；
+                    scope:{          // 隔离作用域；
+                        myId:'@myId',     // 指令谁变成指令  //
+                        //myName:'@',     // 绑定普通的字符串；
+                        myName:'=',        // 变量 name;
+                        myFn:'&'           //
+                    },
+                    controller:['$scope',function($scope){
+                        $scope.name='fffffff';
+                    }],
+                    templateUrl:'temp1.html'
+                };
+            });
+
+            m1.controller('Aaa',['$scope',function($scope){
+                $scope.name='ccccc';  //****
+                $scope.show=function(n){
+                    alert(123145);
+                    alert(n);
+                }
+            }]);
+    </script>
+
+</head>
+<body ng-controller="Aaa">
+    <my-tab my-id="div1" my-name="name" my-fn="show(num)"></my-tab>
+    <my-tab my-id="div2" my-name="name" my-fn="show(num)"></my-tab> <!--指令复用  ****-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

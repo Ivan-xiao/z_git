@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+    <!--View-->
+    <div id="app">
+        <p>hello {{ name }}</p>
+        <input v-model="name"/>  <!--v-model=""; 双向数据绑定；-->
+    </div>
+
+    <script>
+        // Model
+        var exampleData={           //data{}
+          name:'vue.js'
+        };
+
+        // 创建一个 Vue 实例或 MVVM 模式中的 "ViewModel"
+        // 它连接 View 与 Model
+        var exampleVM = new Vue({   //  每个 Vue.js 应用的起步都是通过构造函数 Vue 创建一个 Vue 的根实例：
+            el: '#app',             //el #id
+            data: exampleData       //data{}
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html> <!--引模块的写法；m1 被调用；-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="ZJs/angular.js"></script>
+
+    <script>
+
+        var m1 = angular.module('myApp1',[]);  //    []里面写要依赖的模块；没有为空；
+            m1.controller('Aaa',['$scope',function($s){  //解决压缩有问题；
+                $s.name='hello';
+            }]);
+            m1.controller('Baa',['$scope',function($scope){
+                $scope.name='hei';
+            }]);
+
+        document.onclick= function () {
+            angular.bootstrap(document,['myApp1']);   // 手动初始化；相当于<html ng-app="myApp1">
+        }
+
+    </script>
+
+</head>
+<body>
+    <div ng-controller="Aaa">
+        <p>{{name}}</p>
+    </div>
+
+    <div ng-controller="Baa">
+        <p>{{name}}</p>
+    </div>
+</body>
+</html>

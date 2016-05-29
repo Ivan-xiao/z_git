@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myApp1"> <!--引模块的写法；m1 被调用；-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="ZJs/angular.js"></script>
+
+    <script>
+
+        var m1 = angular.module('myApp1',[]);  // []里面写要依赖的模块；没有为空；
+
+            m1.filter('firstUpper',function(){  // 自定义filter;
+                return function(str,num){
+                    //console.log(str);
+                    console.log(num);
+                    return str.charAt(0).toUpperCase()+str.substring(1); // 原生写法；
+                }
+            });
+
+            m1.controller('Aaa',['$scope','$filter',function($s,$filter){  // 解决压缩有问题；
+                //$s.name='1213124.122312';
+                //$s.name={"name":"hello","age":"20"};
+                //$s.name='hello';
+                //$s.name='12434512345435'
+                /*$s.name=[
+                    {color:"red",age:"20"},
+                    {color:"blue",age:"0"},
+                    {color:"white",age:"10"},
+                    {color:"black",age:"30"}
+                ]*/
+
+                //$s.name=$filter('uppercase')('hello');          /*js里使用过滤器；*/
+                //$s.name=$filter('number')('1243451234.5435',2);
+
+                // $s.name='hello';
+
+                $s.name=$filter('firstUpper')('hello');  // 调用自定义filter;
+            }]);
+
+    </script>
+
+</head>
+<body>
+    <div ng-controller="Aaa">
+        <!--<p>{{name | currency:'￥' : 二参 : 三参 }}</p>-->
+        <!--<p>{{name | currency:'￥' }}</p>-->
+        <!--<p>{{name | number : 1 }}</p> --> <!-- 默认保留3位小数；-->
+        <!--<p>{{name | lowercase }}</p>
+        <p>{{name | uppercase }}</p>-->
+        <!--<pre>{{name | json}}</pre>--> <!--把数据格式化车json格式；要在pre标签中；-->
+        <!--<p>{{name | limitTo:1 }}</p> -->  <!--截取-->
+        <!--<p>{{name | date}}</p>-->   <!--日期-->
+        <!--<p>{{name | orderBy:'age':true}}</p> -->  <!--数组排序 格式固定-->
+        <!--<p>{{name | filter:'red':true}}</p>--> <!--过滤 value 的值-->
+        <!--<p>{{name | limitTo:1 | uppercase }}</p> --><!--|-->
+        <!--<p>{{name | firstUpper:2}}</p>-->
+        <p>{{name}}</p>
+    </div>
+</body>
+</html>

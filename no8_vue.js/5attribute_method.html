@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        var data = { a: 1 };
+        var vm = new Vue({
+            data: data
+        });
+
+        alert(vm.a);  //每个 Vue 实例都会代理其 data 对象里所有的属性：
+        alert(data.a);
+        alert(vm.a === data.a);  // -> true
+
+        // 设置属性也会影响到原始数据
+        //vm.a = 2;
+        //alert(data.a); // -> 2
+
+        // ... 反之亦然
+        //data.a = 3;
+        //alert(vm.a); // -> 3
+
+        var vm1 = new Vue({
+            data: {
+                a: 1
+            },
+            created: function () {
+                // `this` 指向 vm1 实例
+                alert('a is: ' + this.a)
+            }
+        })
+    </script>
+</body>
+</html>

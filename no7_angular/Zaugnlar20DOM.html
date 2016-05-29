@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+    <!--<script src="ZJs/angular.js"></script>-->
+    <script src="ZJs/AngularJS v1.4.9.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.4.9/angular-sanitize.min.js"></script>
+
+    <script>
+        var m1=angular.module('myApp',['ngSanitize']); // 引入模块；
+        m1.controller('Aaa',['$scope','$interval', function($scope,$interval){
+
+            $scope.text='hello';
+            $scope.bBtn=true;
+
+    }]);
+    </script>
+
+    </head>
+    <body>
+    <div ng-controller="Aaa">
+        <input type="checkbox" ng-model="bBtn"/>
+        <div ng-show="bBtn">aaaa</div><!--false-->  <!--hide display;-->
+        <div ng-if="bBtn">aaaa</div> <!--添加/删除-->
+
+        <div ng-switch on="bBtn">
+            <p ng-switch-default>默认</p>
+            <p ng-switch-when="false">切换</p>
+        </div>
+
+        <details>
+            <summary>COPY</summary>
+            <p>app open</p>
+        </details>
+
+        <details ng-open="bBtn">
+            <summary>COPY</summary>
+            <p>app open</p>
+        </details>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

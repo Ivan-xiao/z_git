@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+    <script src="ZJs/AngularJS v1.4.9.js"></script>
+   <!-- <script src="//cdn.bootcss.com/angular.js/1.3.0/angular.min.js"></script>-->
+
+    <script>
+        var m1=angular.module('myApp',[]);
+        /*m1.controller('Aaa',['$scope',function($scope){
+            $scope.text='123';
+        }]);*/
+
+        m1.controller('Aaa',['$scope',FnAaa]);  // 面向对象；
+
+        function FnAaa($scope){}                // 构造一个函数；
+
+        FnAaa.prototype.text = '123';           // 属性和方法挂掉原型上；
+        FnAaa.prototype.show=function(){
+            return 'hello';
+        };
+
+    </script>
+
+</head>
+<body>
+    <div ng-controller="Aaa as a">              <!--as一个对象；-->
+        <div>{{a.text}}:{{a.show()}}</div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

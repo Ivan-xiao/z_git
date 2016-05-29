@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app> <!--标记ng-app告诉AngularJS处理整个HTML页并引导应用：-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/zBase.css"/>
+    <script src="js/angular.js"></script>  <!--这行载入AngularJS脚本：-->
+</head>
+<body>
+    Your name: <input type="text" ng-model="yourname" placeholder="World"><hr>
+                <!--文本输入指令<input ng-model="yourname" />绑定到一个叫yourname的模型变量。-->
+    Hello {{yourname || 'he'}}!
+                <!--双大括号标记将yourname模型变量添加到问候语文本。你不需要为该应用另外注册一个事件侦听器或添加事件处理程序！-->
+</body>
+</html>

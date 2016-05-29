@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp1"> <!--引模块的写法；m1 被调用；-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="ZJs/angular.js"></script>
+
+    <script>
+        /*var m1 = angular.module('myApp1',[]);  // []里面写要依赖的模块；没有为空；
+        m1.controller('Aaa',function($scope){    // 这种方式压缩有问题；
+            $scope.name='hello';
+        });
+        m1.controller('Baa',function($scope){
+            $scope.name='hei';
+        });*/
+
+        var m1 = angular.module('myApp1',[]);  // []里面写要依赖的模块；没有为空；
+
+            m1.controller('Aaa',['$scope',function($s){  // 解决压缩有问题；
+                $s.name='hello';
+            }]);
+
+            m1.controller('Baa',['$scope',function($scope){
+                $scope.name='hei';
+        }]);
+
+
+        var m2 = angular.module('myApp2',[]);//
+        var m3 = angular.module('myApp3',[]);//
+
+
+       /* function Aaa($scope){    // 普通函数 全局函数；
+            $scope.name='hello';
+        }
+        function Baa($scope){
+            $scope.name='he';
+        }*/
+
+    </script>
+
+</head>
+<body>
+    <div ng-controller="Aaa">
+        <p>{{name}}</p>
+    </div>
+
+    <div ng-controller="Baa">
+        <p>{{name}}</p>
+    </div>
+</body>
+</html>

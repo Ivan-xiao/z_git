@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp" >
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+    <script src="ZJs/AngularJS v1.4.9.js"></script>
+   <!-- <script src="//cdn.bootcss.com/angular.js/1.3.0/angular.min.js"></script>-->
+
+    <script>
+        var m1=angular.module('myApp',[]);
+            m1.directive('myHello',function(){     // 创建新的指令；接收两个参数；
+                return {
+                    //restrict: 'E',    //标签指令；
+                    restrict: 'AECM',    //属性指令；/class / 注释； 字母大写；
+                    replace:'true',
+                    template: '<div>world</div>'  //模板；
+                };
+            });
+            m1.controller('Aaa',['$scope',function($scope){  // 模块对象；
+
+            }]);
+    </script>
+
+</head>
+<body>
+    <my-hello></my-hello>  <!--模板的替代-->
+    <my-hello hello></my-hello>    <!--功能-->
+
+    <p class="hello"></p>
+    <!-- directive:hello -->  <!--空格-->
+
+    <div ng-controller="Aaa">
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

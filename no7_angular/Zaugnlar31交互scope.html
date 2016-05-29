@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+    <script src="ZJs/jquery-1.7.2.js"></script>
+    <script src="ZJs/AngularJS v1.4.9.js"></script>
+
+    <script>
+        var m1=angular.module('myApp',[]);
+            m1.directive('hello',function(){
+                return {
+                    restrict: 'E',
+                    replace:true,
+                    transclude:true,
+                    controller: function ($scope) {
+                        //$scope.name='test';  // name 只能在hello内部拿到；
+                        this.name='test'
+                    },
+                    template:'<div>hello world <h1 ng-transclude></h1></div>'
+                };
+            });
+
+            m1.directive('hi',function(){
+                return {
+                    restrict: 'E',
+                    replace:true,
+                    require:'^hello',
+                    //require:'?^hello', //容错处理；
+                    template:'<span>hi world</span>',
+                    link:function(scope,element,attr,reController){  //dom操作；
+                        alert(JSON.stringify(reController));
+                    }
+                };
+            });
+
+            m1.controller('Aaa',['$scope',function($scope){
+
+            }]);
+    </script>
+
+</head>
+<body ng-controller="Aaa">
+    <hello>
+        <hi></hi>
+    </hello>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

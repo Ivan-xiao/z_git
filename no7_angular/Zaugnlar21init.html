@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+    <!--<script src="ZJs/angular.js"></script>-->
+    <script src="ZJs/AngularJS v1.4.9.js"></script>
+    <script src="//cdn.bootcss.com/angular.js/1.4.9/angular-sanitize.min.js"></script>
+
+    <script>
+        var m1=angular.module('myApp',['ngSanitize']); // 引入模块；
+        m1.controller('Aaa',['$scope','$interval', function($scope,$interval){
+
+            //$scope.text='hello';
+            $scope.bBtn=true;
+            $scope.arr=[['a','b'],['c','d']]
+
+    }]);
+    </script>
+
+    </head>
+    <body>
+    <div ng-controller="Aaa" ng-init="text='hello'">  <!---->
+       {{text}}
+    </div>
+
+    <div ng-controller="Aaa">
+        {{text}}
+    </div>
+
+    <div ng-controller="Aaa">
+        <div ng-repeat="arrOut in arr" ng-init="outerIndex=$index"><!--循环套循环中；定义初始的变量；-->
+            <div ng-repeat="arrinner in arrOut" ng-init="innerIndex=$index">
+                <p>{{arrinner}}:{{outerIndex}}{{innerIndex}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div ng-controller="Aaa" ng-include="'include.html'">
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

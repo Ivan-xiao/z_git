@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.7.2.js"></script>
+
+    <script>
+        /*往$.fn上面添加一个方法，名字是我们的插件名称; 在这里面,this指的是用jQuery选中的元素; this=$('a')*/
+        $.fn.myPlugIn=function(){
+            return this.each(function(){
+                $(this).append(' '+$(this).attr('href'));
+                $(this).css({'color':'green'});    // return
+            });
+            //return this.css({'color':'green'});  // return
+        };
+    </script>
+
+    <script>
+        $(function(){
+            $('a').myPlugIn().css({'color':'red'});// return后 可以继续链式操作 .css({'color':'red'}
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>
+        <a href="http://www.webo.com/liuwayong">我的微博</a>
+    </li>
+    <li>
+        <a href="http://http://www.cnblogs.com/Wayou/">我的博客</a>
+    </li>
+    <li>
+        <a href="http://wayouliu.duapp.com/">我的小站</a>
+    </li>
+</ul>
+</body>
+</html>

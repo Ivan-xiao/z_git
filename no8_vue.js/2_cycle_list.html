@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="z in d">  <!--v-for 循环；-->
+                {{z.text}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        //alert(1);
+        new Vue({
+            el: '#app',
+            data: {
+               d:[
+                   {text:'js'},
+                   {text:'css'},
+                   {text:'html'}
+               ]
+            }
+        })
+    </script>
+</body>
+</html>

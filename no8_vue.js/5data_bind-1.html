@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--<span>This will never change: {{* msg }}</span>  // 也可以只处理单次插值，今后的数据变化就不会再引起插值更新了：-->
+        <div id="demo">{{fullName}}</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#demo',
+            data: {
+                firstName: 'Foo',
+                lastName: 'Bar'
+            },
+            computed: {
+                fullName: function () {
+                    return this.firstName + ' ' + this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+</html>

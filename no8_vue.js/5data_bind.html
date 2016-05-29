@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--<span>This will never change: {{* msg }}</span>  // 也可以只处理单次插值，今后的数据变化就不会再引起插值更新了：-->
+        <div id="example">
+            a={{ a }}, b={{ b }}
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#example',
+            data: {
+                a: 2
+            },
+            computed: {
+                // 一个计算属性的 getter
+                b: function () {
+                    // `this` 指向 vm 实例
+                    return this.a + 1
+                }
+            }
+        })
+    </script>
+</body>
+</html>

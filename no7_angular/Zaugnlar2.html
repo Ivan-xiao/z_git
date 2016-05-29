@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="ZJs/angular.js"></script>
+
+    <script>
+        function Aaa($scope,$rootScope){ // angular形参不能传参；形参有自带的参数-依赖注入（服务）；
+           alert(1);
+    }
+    </script>
+
+
+</head>
+<body>
+    <div ng-controller="Aaa"> <!--[controller] 引用Aaa函数 弹 1-->
+
+    </div>
+</body>
+</html>
