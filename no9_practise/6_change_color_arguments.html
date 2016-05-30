@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.7.2.js"></script>
+    <style>
+        #div1{ width:300px; height:300px; border:1px solid #000;}
+    </style>
+    <script>
+        window.onload=function(){
+            function setColor(sColor) // sColor='red'
+            {
+                var oDiv=document.getElementById('div1');
+                oDiv.style.background=sColor;
+            }
+
+            var aInp=$('input');
+            aInp.eq(0).click(function(){
+                setColor('red');
+            });
+            aInp.eq(1).click(function(){
+                setColor('blue');
+            });
+            aInp.eq(2).click(function(){
+                setColor('green');
+            });
+        };
+    </script>
+</head>
+
+<body>
+    <input type="button" value="变红" />
+    <input type="button" value="变蓝" />
+    <input type="button" value="变绿" />
+    <div id="div1"></div>
+</body>
+</html>

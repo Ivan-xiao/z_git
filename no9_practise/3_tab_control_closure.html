@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <style>
+        input.active { background:yellow; }
+        div { display:none; width:200px; height:200px; font-size:50px; line-height:200px; text-align:center; border:5px solid red; }
+        div.active { display:block; }
+    </style>
+    <script>
+        window.onload=function (){
+            var aBtn=document.getElementsByTagName('input');
+            var aDiv=document.getElementsByTagName('div');
+
+            for (var i=0; i<aBtn.length; i++)
+            {
+                (function (index){
+                    aBtn[i].onclick=function (){
+                        for (var i=0; i<aBtn.length; i++)
+                        {
+                            aBtn[i].className='';
+                            aDiv[i].className='';
+                        }
+                        aBtn[index].className='active';
+                        aDiv[index].className='active';
+                    };
+                })(i);
+            }
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="00" class="active" />
+<input type="button" value="11" />
+<input type="button" value="22" />
+<div class="active">00</div>
+<div>11</div>
+<div>22</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <script>
+        window.onload=function (){
+            var oBtn=document.getElementById('btn');
+            var aInp=document.getElementById('div1').getElementsByTagName('input');
+            // 上面控制下面
+            oBtn.onclick=function (){
+                if (oBtn.checked == true)
+                {
+                    for (var i=0; i<aInp.length; i++)
+                    {
+                        aInp[i].checked=true;
+                    }
+                }
+                else
+                {
+                    for (var j=0; j<aInp.length; j++)
+                    {
+                        aInp[j].checked=false;
+                    }
+                }
+            };
+
+            // 下面控制上面
+            for (var i=0; i<aInp.length; i++)
+            {
+                aInp[i].onclick=function (){
+                    // 被选中个数
+                    var n=0;
+                    for (var i=0; i<aInp.length; i++)
+                    {
+                        if (aInp[i].checked == true)
+                        {
+                            n++;
+                        }
+                    }
+                    // alert(n);
+
+                    // 被选中个数  == 总数
+                    if (n == aInp.length)
+                    {
+                        oBtn.checked=true;
+                    }
+                    else
+                    {
+                        oBtn.checked=false;
+                    }
+                };
+            }
+        };
+    </script>
+</head>
+
+<body>
+<input type="checkbox" id="btn" />
+<hr />
+<div id="div1">
+    <input type="checkbox" /><br />
+    <input type="checkbox" /><br />
+    <input type="checkbox" /><br />
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

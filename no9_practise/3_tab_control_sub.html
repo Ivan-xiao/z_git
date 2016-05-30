@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title></title>
+    <style>
+        input { width:100px; height:30px; cursor:pointer; }
+        input.active { background:yellow; }
+        div { display:none; width:300px; height:150px; border:2px solid red; line-height:150px; text-align:center; font-size:50px;}
+        div.active { display:block; }
+    </style>
+    <script>
+        window.onload=function (){
+            var aBtn=document.getElementsByTagName('input');
+            var aDiv=document.getElementsByTagName('div');
+
+            /*
+             先清除所有，再给当前加
+             一一对应 —— 自定义下标
+            */
+
+            for (var i=0; i<aBtn.length; i++)
+            {
+                // 加下标
+                aBtn[i].dataIndex=i;
+
+                // 加事件
+                aBtn[i].onclick=function (){
+                    for (var j=0; j<aBtn.length; j++)
+                    {
+                        aBtn[j].className='';
+                        aDiv[j].className='';
+                    }
+                    // 当前加
+                    this.className='active';
+                    aDiv[this.dataIndex].className='active';
+                };
+            }
+        };
+    </script>
+</head>
+
+<body>
+<input type="button" value="电影" class="active" />
+<input type="button" value="娱乐" />
+<input type="button" value="体育" />
+<div class="active">movie</div>
+<div>amusement</div>
+<div>sport</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

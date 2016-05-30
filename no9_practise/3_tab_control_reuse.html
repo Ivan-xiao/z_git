@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <style>
+        * { margin:0; padding:0; }
+        body { padding-bottom:1000px; }
+        .clearfix:after { display:block; content:''; clear:both; }
+
+        /*第一块*/
+        .h-tab { width:400px; border:5px solid red; }
+        .h-tab input { width:100px; height:40px; }
+        .h-tab .j-btn.active { background:yellow; }
+        .h-tab div { display:none; height:150px; line-height:150px; text-align:center; font-weight:bold; font-size:50px; }
+        .h-tab .j-box.active { display:block; }
+
+        /*第二块*/
+        .c-tab { width:300px; border:5px solid green; margin:10px; }
+        .c-tab a { float:left; width:100px; height:45px; line-height:45px; margin:0 10px; text-align:center; border:1px solid #999; border-radius:3px; }
+        .c-tab .j-btn.active { background:yellow; }
+        .c-tab .cont div { display:none; height:150px; line-height:150px; text-align:center; font-weight:bold; font-size:50px; }
+        .c-tab .j-box.active { display:block; }
+
+        /*第三块*/
+        .f-tab { width:400px; border:5px solid blue; }
+        .f-tab span { float:left; width:100px; height:45px; line-height:45px; margin:0 10px; text-align:center; border:1px solid #999; border-radius:3px; cursor:pointer; }
+        .f-tab .j-btn.active { background:pink; }
+        .f-tab .cont p { display:none; height:150px; line-height:150px; text-align:center; font-weight:bold; font-size:50px; }
+        .f-tab .j-box.active { display:block; }
+    </style>
+    <script>
+        window.onload=function (){
+
+            tab('j-tab');
+
+            function tab(sName)
+            {
+                // 获取所有的选项卡父级
+                var aParent=document.getElementsByClassName(sName);
+                for (var i=0; i<aParent.length; i++)
+                {
+                    _tab(aParent[i]);
+                }
+            }
+
+            function _tab(oParent)
+            {
+                var aBtn=oParent.getElementsByClassName('j-btn');
+                var aBox=oParent.getElementsByClassName('j-box');
+
+                for (var i=0; i<aBtn.length; i++)
+                {
+                    aBtn[i].index=i;
+                    aBtn[i].onclick=function (){
+                        for (var i=0; i<aBtn.length; i++)
+                        {
+                            aBtn[i].className='j-btn';
+                            aBox[i].className='j-box';
+                        }
+
+                        this.className='j-btn active';
+                        aBox[this.index].className='j-box active';
+                    };
+                }
+            }
+        };
+    </script>
+</head>
+
+<body>
+<div class="h-tab j-tab">
+    <input type="button" value="新闻" class="active j-btn" />
+    <input type="button" value="体育" class="j-btn" />
+    <input type="button" value="娱乐" class="j-btn" />
+
+    <div class="active j-box">新闻</div>
+    <div class="j-box">体育</div>
+    <div class="j-box">娱乐</div>
+</div>
+
+<div class="c-tab j-tab">
+    <div class="clearfix">
+        <a href="javascript:;" class="active j-btn">新闻2</a>
+        <a href="javascript:;" class="j-btn">体育2</a>
+    </div>
+
+    <div class="cont">
+        <div class="active j-box">新闻2</div>
+        <div class="j-box">体育2</div>
+    </div>
+</div>
+<div class="f-tab j-tab">
+    <div class="clearfix">
+        <span class="active j-btn">新闻3</span>
+        <span class="j-btn">体育3</span>
+        <span class="j-btn">动物世界</span>
+    </div>
+
+    <div class="cont">
+        <p class="active j-box">新闻3</p>
+        <p class="j-box">体育3</p>
+        <p class="j-box">动物世界</p>
+    </div>
+</div>
+
+<div class="f-tab j-tab">
+    <div class="clearfix">
+        <span class="active j-btn">新闻3</span>
+        <span class="j-btn">体育3</span>
+        <span class="j-btn">动物世界</span>
+    </div>
+
+    <div class="cont">
+        <p class="active j-box">新闻3</p>
+        <p class="j-box">体育3</p>
+        <p class="j-box">动物世界</p>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

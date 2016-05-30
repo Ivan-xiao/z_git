@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript简易日历 - 智能社 - www.zhinengshe.com</title>
+    <style>
+        *{ padding:0; margin:0; list-style:none;}
+        ul{ width:630px; height:630px; position:absolute; top:20px; left:50%; margin-left:-315px; padding:0 10px 10px 0; background:#eee;}
+        li{ width:200px; height:200px; float:left; margin:10px 0 0 10px; position:relative;}
+        a{ width:200px; height:200px; position:absolute;}
+        a img{ position:relative; width:200px; height:200px;}
+    </style>
+    <script>
+        window.onload=function (){
+            var aLi=document.getElementsByTagName('li');
+
+            for (var i=0; i < aLi.length; i++)
+            {
+                aLi[i].onmouseover=function (){
+                    var oImg=this.getElementsByTagName('img')[0];
+
+                    oImg.style.width='260px';
+                    oImg.style.height='260px';
+                    oImg.style.left='-30px';
+                    oImg.style.top='-30px';
+                    oImg.style.zIndex=2;
+                };
+
+                aLi[i].onmouseout=function (){
+                    var oImg=this.getElementsByTagName('img')[0];
+
+                    oImg.style.width='200px';
+                    oImg.style.height='200px';
+                    oImg.style.left='0';
+                    oImg.style.top='0';
+                    oImg.style.zIndex=1;
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+<ul>
+    <li><a href="javascript:;"><img src="images/psu.jpg" width="400" height="400" /></a></li>
+    <li><a href="javascript:;"><img src="images/psu.jpg" width="400" height="400" /></a></li>
+    <li><a href="javascript:;"><img src="images/psu.jpg" width="400" height="400" /></a></li>
+    <li><a href="javascript:;"><img src="images/psu.jpg" width="400" height="400" /></a></li>
+    <li><a href="javascript:;"><img src="images/psu.jpg" width="400" height="400" /></a></li>
+    <li><a href="javascript:;"><img src="images/psu.jpg" width="400" height="400" /></a></li>
+    <li><a href="javascript:;"><img src="images/psu.jpg" width="400" height="400" /></a></li>
+    <li><a href="javascript:;"><img src="images/psu.jpg" width="400" height="400" /></a></li>
+    <li><a href="javascript:;"><img src="images/psu.jpg" width="400" height="400" /></a></li>
+</ul>
+</body>
+</html>
