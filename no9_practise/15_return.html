@@ -1,0 +1,83 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <script>
+        function show(n)
+        {
+            if (n%2 == 0)
+            {
+                return '偶数';
+            }
+            else
+            {
+                return '奇数';
+            }
+        }
+
+        alert(show(5));
+    </script>
+    <script>
+        function show()
+        {
+            alert(123);
+            return function (){
+                alert('abc');
+                return 456;
+            };
+        }
+
+        alert(show()());
+
+        /*
+         var a=show();
+         alert(a());
+         */
+
+    </script>
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <script>
+        window.onload=function (){
+            var oT=document.getElementById('t1');
+            var oBtn=document.getElementById('btn');
+            var timer=null;
+            var n=0;
+
+            // 开始
+            oBtn.onclick=function (){
+                oBtn.disabled=true;
+                timer=setInterval(function (){
+                    n++;
+
+                    var m=parseInt(n/60);
+                    var s=n%60;
+
+                    oT.value=toDub(m)+':'+toDub(s);
+                }, 100);
+            };
+
+            // 暂停
+            var oBtn2=document.getElementById('btn2');
+            oBtn2.onclick=function (){
+                clearInterval(timer);
+                oBtn.value='继续';
+                oBtn.disabled=false;
+            };
+
+            // 重置
+            var oBtn3=document.getElementById('btn3');
+            oBtn3.onclick=function (){
+                clearInterval(timer);
+                n=0;
+                oBtn.value='开始';
+                oT.value='00:00';
+                oBtn.disabled=false;
+            };
+
+            function toDub(n)
+            {
+                return n<10 ? '0'+n : ''+n;
+            }
+        };
+    </script>
+</head>
+
+<body>
+<input type="text" value="00:00" id="t1" style="width:60px; text-align:center;" />
+<input type="button" value="开始" id="btn" />
+<input type="button" value="暂停" id="btn2" />
+<input type="button" value="重置" id="btn3" />
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

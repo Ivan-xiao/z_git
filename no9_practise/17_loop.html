@@ -7,6 +7,30 @@
     <meta name="copyright" content="智能社 - zhinengshe.com">
     <title>智能社 - www.zhinengshe.com</title>
     <script>
+        for (var i=0; i<5; i++)
+        {
+            if (i == 2)
+            {
+                break;
+            }
+
+            alert(i);
+        }
+    </script>
+
+    <script>
+        for (var i=0; i<5; i++)
+        {
+            if (i == 2)
+            {
+                continue;
+            }
+
+            alert(i);
+        }
+    </script>
+
+    <script>
         var a=2;
 
         for (var i=0; i<3; i++)
@@ -17,8 +41,9 @@
             }
 
             a+=i;
-            a++;
-            alert(a);
+            c=a++;
+            alert(c);
+            //alert(a);
         }
         alert(a);
     </script>

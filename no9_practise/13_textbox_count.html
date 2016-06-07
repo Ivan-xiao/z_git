@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com" />
+    <meta name="copyright" content="智能社 - zhinengshe.com" />
+    <meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+    <title>智能社— http://www.zhinengshe.com</title>
+    <script>
+        window.onload=function (){
+            // 加载完成了
+            var oBtn=document.getElementById('btn1');
+            var oT1=document.getElementById('t1');
+            var oT2=document.getElementById('t2');
+
+            // 点击
+            oBtn.onclick=function (){
+                var n1=Number(oT1.value);
+                var n2=Number(oT2.value);
+
+                if (isNaN(n1))
+                {
+                    alert('第一个框写错了');
+                }
+
+                if (isNaN(n2))
+                {
+                    alert('第二个框写错了');
+                }
+
+                if (( ! isNaN(n1)) && ( ! isNaN(n2)))
+                {
+                    alert(n1+n2);
+                }
+
+            };
+            /*
+             parseInt
+             12abc -> 12
+             parseFloat
+             12abc -> 12
+             Number
+             12abc -> NaN
+             */
+        };
+    </script>
+</head>
+
+<body>
+<input type="text" id="t1">+<input type="text" id="t2">
+<input type="button" value="计算" id="btn1">
+</body>
+</html>
+
+
+
+
+
+
+
+
+

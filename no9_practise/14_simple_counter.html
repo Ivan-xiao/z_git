@@ -1,0 +1,64 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>简易计算器</title>
+    <script>
+        window.onload=function (){
+            var oT1=document.getElementById('t1');
+            var oT2=document.getElementById('t2');
+            var oBtn=document.getElementById('btn');
+            var oSel=document.getElementById('sel');
+
+
+            oBtn.onclick=function (){
+                var n1=parseFloat(oT1.value);
+                var n2=parseFloat(oT2.value);
+                var str=oSel.value;
+                var res=0;
+
+                switch (str)
+                {
+                    case '+':
+                        res=n1+n2;
+                        break;
+
+                    case '-':
+                        res=n1-n2;
+                        break;
+
+                    case '*':
+                        res=n1*n2;
+                        break;
+
+                    case '/':
+                        res=n1/n2;
+                        break;
+                }
+
+                alert(res);
+            };
+        };
+    </script>
+</head>
+
+<body>
+<input type="text" id="t1" />
+<select id="sel">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+</select>
+<input type="text" id="t2" />
+<input type="button" value="计算" id="btn" />
+</body>
+</html>
+
+
+
+
+
+
+
