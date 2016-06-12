@@ -7,21 +7,32 @@
     <meta name="copyright" content="智能社 - zhinengshe.com">
     <title>智能社 - www.zhinengshe.com</title>
     <script>
-        var a=2;
+         //alert(a()[1]);
 
-        for (var i=0; i<3; i++)
+        alert(function (){
+            return b();
+        }());
+
+
+
+        function a()
         {
-            if (i == 1)
-            {
-                continue;
-            }
-
-            a+=i;
-            a++;
-            alert(a);
+            return [
+                function (){
+                    alert('b');
+                },
+                function (){
+                    return b();
+                }
+            ];
         }
-        alert(a);
+
+        function b()
+        {
+            return a()[0];
+        }
     </script>
+
 </head>
 
 <body>

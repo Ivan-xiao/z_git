@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <script>
+        window.onload=function (){
+            var oDiv=document.getElementById('div1');
+
+            tick();
+            setInterval(tick, 1000);
+
+            function tick()
+            {
+                // 目标时间
+                var oDate=new Date();
+                oDate.setFullYear(2017, 0, 1);
+                oDate.setHours(0, 0, 0, 0);
+
+                // 当期时间
+                var oNow=new Date();
+
+                //alert(oDate.getTime());
+                //alert(oDate);
+                //alert(oNow);
+
+                // 总秒数
+                var total=parseInt((oDate.getTime()-oNow.getTime())/1000);
+
+                // 算时间
+                var d=parseInt(total/86400);
+                total%=86400;
+
+                var h=parseInt(total/3600);
+                total%=3600;
+
+                var m=parseInt(total/60);
+                total%=60;
+
+                var s=total;
+
+                oDiv.innerHTML=d+'天'+h+'小时'+m+'分钟'+s+'秒';
+            }
+        };
+    </script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+

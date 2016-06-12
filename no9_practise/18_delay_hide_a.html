@@ -1,0 +1,104 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <style>
+        * { margin:0; padding:0; }
+        div { float:left; width:100px; height:100px; margin:10px; }
+        input { display:block; width:100%; height:30px; margin-bottom:10px; }
+        ul { display:none; height:60px; background:green; }
+    </style>
+
+    <script>
+        window.onload=function (){
+            var aBtn=document.getElementsByTagName('input');
+            var aUl=document.getElementsByTagName('ul');
+
+            for (var i=0; i<aBtn.length; i++)
+            {
+                (function (index){
+                    var timer=null;
+
+                    aBtn[i].onmouseover=function (){
+                        clearTimeout(timer);
+                        aUl[index].style.display='block';
+                    };
+
+                    aBtn[i].onmouseout=function (){
+                        timer=setTimeout(function (){
+                            aUl[index].style.display='none';
+                        }, 150);
+                    };
+
+                    aUl[i].onmouseover=function (){
+                        clearTimeout(timer);
+                    };
+
+                    aUl[i].onmouseout=function (){
+                        timer=setTimeout(function (){
+                            aUl[index].style.display='none';
+                        }, 150);
+                    };
+                })(i);
+            }
+        };
+    </script>
+
+    <!--<script>
+        window.onload=function (){
+            var aBtn=document.getElementsByTagName('input');
+            var aUl=document.getElementsByTagName('ul');
+
+            for (var i=0; i<aBtn.length; i++)
+            {
+                (function (index){
+                    var timer=null;
+
+                    aBtn[i].onmouseover=aUl[i].onmouseover=function (){
+                        clearTimeout(timer);
+                        aUl[index].style.display='block';
+                    };
+
+                    aBtn[i].onmouseout=aUl[i].onmouseout=function (){
+                        timer=setTimeout(function (){
+                            aUl[index].style.display='none';
+                        }, 150);
+                    };
+                })(i);
+            }
+        };
+    </script>-->
+
+
+</head>
+
+<body>
+<div>
+    <input type="button" value="aa" />
+    <ul></ul>
+</div>
+
+<div>
+    <input type="button" value="bb" />
+    <ul></ul>
+</div>
+
+<div>
+    <input type="button" value="cc" />
+    <ul></ul>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
