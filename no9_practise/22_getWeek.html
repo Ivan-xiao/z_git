@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -9,9 +8,9 @@
     <script>
         var oDate=new Date();
         var week=oDate.getDay(); // 0-6
-        var arr=['星期日', '星期一', '星期2', '星期3', '星期4', '星期5', '星期6'];
+        var arr=['', '星期一', '星期2', '星期3', '星期4', '星期5', '星期6', '星期日'];
 
-        (week==1) && (week=6);
+        (week==0) && (week=7);
         /*
          if (week == 0)
          {
@@ -20,8 +19,6 @@
          */
         alert(arr[week]);
     </script>
-
-
 </head>
 
 <body>

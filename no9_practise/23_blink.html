@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <style>
+        div { width:800px; height:40px; background:#ccc; margin:50px auto; }
+    </style>
+    <script>
+        window.onload=function (){
+            var oDiv=document.getElementById('div1');
+
+            oDiv.onclick=function (){
+                // ccc -> eee 第一次 0
+                // eee -> ccc 1
+                // ccc -> eee 第二次 2
+                // eee -> ccc 3
+                // ccc -> eee 第三次 4
+                // eee -> ccc 5
+                var n=0;
+                var timer=setInterval(function (){
+                    if (n%2 == 0)
+                    {
+                        oDiv.style.background='#eee';
+                    }
+                    else
+                    {
+                        oDiv.style.background='#ccc';
+                    }
+
+                    n++;
+
+                    if (n == 10)
+                    {
+                        clearInterval(timer);
+                    }
+                }, 100);
+
+            };
+        };
+    </script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
