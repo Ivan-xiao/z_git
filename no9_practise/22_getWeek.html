@@ -5,7 +5,7 @@
     <meta name="author" content="智能社 - zhinengshe.com">
     <meta name="copyright" content="智能社 - zhinengshe.com">
     <title>智能社 - www.zhinengshe.com</title>
-    <script>
+    <!--<script>
         var oDate=new Date();
         var week=oDate.getDay(); // 0-6
         var arr=['', '星期一', '星期2', '星期3', '星期4', '星期5', '星期6', '星期日'];
@@ -18,7 +18,31 @@
          }
          */
         alert(arr[week]);
+    </script>-->
+
+    <!--<script>
+        // 懒 -> 短路
+        true && alert('a');
+        //true || alert('a');
+
+        // false && alert('a');
+        //false || alert('a');
+    </script>-->
+
+    <script>
+        var oDate=new Date();
+
+        oDate.setMonth(oDate.getMonth()+1, 1); // 下一个月
+        oDate.setDate(0); // 本月最后一天
+
+        // 获取
+        var str=oDate.getFullYear()+'年'+(oDate.getMonth()+1)+'月'+oDate.getDate()+'日';
+        alert(str);
+
+        alert('星期'+oDate.getDay());
     </script>
+
+
 </head>
 
 <body>
