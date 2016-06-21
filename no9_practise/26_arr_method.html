@@ -76,6 +76,33 @@
     </script>
 
 
+    <script>
+        var arr=[4, 5, 1, 2, 0];
+        arr.sort(); // 排序，默认从小到大  // 默认 按照字符串
+        alert(arr);
+    </script>
+
+    <script>
+        var arr=[41, 11, 12, 33, 30, 21, 5, 1, 2, 0];
+        arr.sort(function (n1, n2){
+            // return n1-n2; // 从小到大
+            return n2-n1;
+        });
+        alert(arr);
+    </script>
+
+    <script>
+        var arr=[[0], [1], [5], [2]];
+        alert(arr);
+        // a [0]  b [1]
+        arr.sort(function (a, b){
+            // return 1-5
+            return a[0]-b[0];
+        });
+        // arr=[[0], [1], [2], [5]]
+        console.log(arr);
+        alert(arr);
+    </script>
 </head>
 
 <body>

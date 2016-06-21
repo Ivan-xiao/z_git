@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com" />
+    <meta name="copyright" content="智能社 - zhinengshe.com" />
+    <title>智能社 - www.zhinengshe.com</title>
+    <script src="js/jquery-1.7.2.js"></script>
+    <style>
+        body{ background:#ccc;}
+        .hxi-item{ width:1100px; height:740px; background:url("images/hxiItem-1.png") no-repeat; position: fixed; left:50%; margin-left: -550px; top:50%; margin-top:-370px;}
+        .hxi-item .r-text{ float:left; position: relative; width:974px; height:678px; margin-left:52px; overflow: hidden; }
+        .hxi-item .r-text .content{ position: absolute; width:970px; padding:30px 0;}
+        .hxi-item .s-box{ position: relative; float:right; width:40px; height:698px; background:#eeeeee; border-radius: 3px; top:34px; right:2px;  }
+        .hxi-item .s-box .pre{ position:absolute; cursor: pointer; width:22px; height:20px; background: url("images/hxiItem-3.png") no-repeat; left:9px; top:7px;}
+        .hxi-item .s-box .next{ position:absolute; cursor: pointer; width:22px; height:20px; background: url("images/hxiItem-4.png") no-repeat; left:9px; bottom:7px;}
+        .hxi-item .s-box .s-smallBox{ width:26px; height:620px; position: relative;   top:38px; left:7px;}
+        .hxi-item .s-box .s-smallBox span{ position: absolute; top:0; left:0; width:26px; height:58px; background: url("images/hxiItem-5.png") no-repeat; cursor: pointer;}
+        .hxi-item .item-close{ width:52px; height:52px; background:url("images/hxiItem-2.png") no-repeat; position: absolute; right:-26px; top:-26px; cursor: pointer;}
+    </style>
+    <script>
+        $(function(){
+            (function(){
+                var oHScroll=$('#hScroll');
+                var oText=$('#rText');
+                var oCont=$('#hContent');
+                var oPre=$('#hPre');
+                var oNext=$('#hNext');
+                var oItemClose=$('#itemClose');
+                var oHxiItem=$('#hxiItem');
+                var oHDeal=$('#hDeal');
+                var disY=0;
+                var top=0;
+                var MaxTop=oHScroll.parent().height()-oHScroll.height();
+                var maxContTop=oCont.height()-oText.height();
+
+                oHScroll.mousedown(function(ev){
+                    disY = ev.pageY - $(this).position().top;
+                    $(document).mousemove(function(ev){
+                        top=ev.pageY - disY;
+                        if(top<=0){
+                            top=0;
+                        }else if(top>=MaxTop){
+                            top=MaxTop;
+                        }
+                        textTab();
+                    });
+                    $(document).mouseup(function(){
+                        $(document).off();
+                    });
+                    return false;
+                });
+
+                oPre.mousedown(function(){
+                    top-=100;
+                    if(top<=0){
+                        top=0;
+                    }
+                    textTab();
+                });
+
+                oNext.mousedown(function(){
+                    top+=100;
+                    if(top>=MaxTop){
+                        top=MaxTop;
+                    }
+                    textTab();
+                });
+
+                oItemClose.click(function(){
+                    oHxiItem.hide();
+                });
+
+                oHDeal.click(function(){
+                    oHxiItem.show();
+                });
+
+                function textTab(){
+                    oHScroll.css('top',top);
+                    var nContTop=top/MaxTop*maxContTop;
+                    if(nContTop<0){
+                        oCont.css('top',nContTop);
+                    }else{
+                        oCont.css('top',-nContTop);
+                    }
+                }
+            })();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="hxi-item clearFix" id="hxiItem">
+        <div class="r-text" id="rText">
+            <div class="content" id="hContent">content</div>
+        </div>
+        <div class="s-box">
+            <i class="pre" id="hPre"></i>
+            <i class="next" id="hNext"></i>
+            <div class="s-smallBox">
+                <span id="hScroll"></span>
+            </div>
+        </div>
+        <div class="item-close" id="itemClose"></div>
+    </div>
+</body>
+</html>

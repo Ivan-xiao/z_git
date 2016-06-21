@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 <head>
@@ -5,28 +6,49 @@
     <meta name="author" content="智能社 - zhinengshe.com">
     <meta name="copyright" content="智能社 - zhinengshe.com">
     <title>智能社 - www.zhinengshe.com</title>
+    <style>
+        * { margin:0; padding:0; }
+        .divB{ width:200px; height:200px; border:1px solid red; position: relative; top:200px; left:200px; margin:200px;}
+        #div1 { position:absolute; width:100px; height:100px; background:#ccc; }
+    </style>
     <script>
-        window.onload=function(){
-            var arr2=[1,2,3,4,5,1,2,3,6];
-            var arr1=[];
+        window.onload=function (){
+            var oDiv=document.getElementById('div1');
 
+            oDiv.onmousedown=function (ev){
+                var oEvent=ev || event;
+                var disX=oEvent.clientX-oDiv.offsetLeft;
+                var disY=oEvent.clientY-oDiv.offsetTop;
+                //alert(disX);
+                //alert(oDiv.offsetLeft);
 
-                for(var j=0; j<= arr1.length; j++){
-                    for (var i=0; i<arr2.length; i++) {
-                        if(arr1[j]!=arr2[i]){
-                            alert(1);
-                            arr1.push(arr2[i]);
-                        }
-                    }
-                }
-            alert(arr1);
+                document.onmousemove=function (ev){
+                    var oEvent=ev || event;
+                    var left=oEvent.clientX-disX;
+                    var top=oEvent.clientY-disY;
+
+                    oDiv.style.left=left+'px';
+                    oDiv.style.top=top+'px';
+                };
+
+                document.onmouseup=function (){
+                    document.onmousemove=null;
+                    document.onmouseup=null;
+                };
+            };
+
         };
     </script>
 </head>
 
 <body>
+<div class="divB">
+    <div id="div1"></div>
+</div>
+
 </body>
 </html>
+
 
 
 
