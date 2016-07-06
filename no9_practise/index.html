@@ -7,38 +7,19 @@
     <meta name="copyright" content="智能社 - zhinengshe.com">
     <title>智能社 - www.zhinengshe.com</title>
     <style>
-        * { margin:0; padding:0; }
-        .divB{ width:200px; height:200px; border:1px solid red; position: relative; top:200px; left:200px; margin:200px;}
-        #div1 { position:absolute; width:100px; height:100px; background:#ccc; }
+
     </style>
     <script>
-        window.onload=function (){
-            var oDiv=document.getElementById('div1');
+        var arr=['a', 'b'];
+        alert(arr[3]);
 
-            oDiv.onmousedown=function (ev){
-                var oEvent=ev || event;
-                var disX=oEvent.clientX-oDiv.offsetLeft;
-                var disY=oEvent.clientY-oDiv.offsetTop;
-                //alert(disX);
-                //alert(oDiv.offsetLeft);
-
-                document.onmousemove=function (ev){
-                    var oEvent=ev || event;
-                    var left=oEvent.clientX-disX;
-                    var top=oEvent.clientY-disY;
-
-                    oDiv.style.left=left+'px';
-                    oDiv.style.top=top+'px';
-                };
-
-                document.onmouseup=function (){
-                    document.onmousemove=null;
-                    document.onmouseup=null;
-                };
-            };
-
+        var json={
+            'name' : 'harry'
         };
+
+        alert(json['age']);
     </script>
+
 </head>
 
 <body>

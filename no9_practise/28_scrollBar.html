@@ -35,7 +35,7 @@
                 var maxContTop=oCont.height()-oText.height();
 
                 oHScroll.mousedown(function(ev){
-                    disY = ev.pageY - $(this).position().top;
+                    disY = ev.pageY - $(this).position().top; // ****
                     $(document).mousemove(function(ev){
                         top=ev.pageY - disY;
                         if(top<=0){
