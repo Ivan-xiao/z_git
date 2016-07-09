@@ -36,39 +36,6 @@
             };
         };
     </script>
-
-    <script>
-            var str='?value1=a&value2=b&value3=c&value4=a&value5=b';
-            str=str.substring(1);
-            var arr=str.split('&');
-            var str2=arr.join('\n');
-            alert(str2);
-    </script>
-
-    <script>
-        var str='aa@qq.com';
-        var arr=str.split('@');
-        var username=arr[0];
-        var sName=arr[1].split('.')[0];
-        alert(username);
-    </script>
-
-    <script>
-        var str='harry@zhinengshe.com';
-        var n=str.indexOf('@');
-        var username=str.substring(0, n);
-        var n1=str.indexOf('.');
-        var sName=str.substring(n+1, n1);
-        alert(sName);
-    </script>
-
-    <script>
-        var str='{name:harry, sex:男, age:18}';
-        str=str.substring(1, str.length-1);
-        var arr=str.split(',');
-        // var arr=[name=harry, sex:男, age:18];
-    </script>
-
 </head>
 
 <body>

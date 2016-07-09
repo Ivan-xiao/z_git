@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var json={
+        // 下标  值
+        'name' : 'harry',
+        'age'  : 18,
+        'sex'  : '男'
+    };
+    alert(json['sex']);
+</script>
+<script>
+    /*
+     有一个人叫小明，是前端工程师，在北京工作。
+     有一个姐姐，小红，是秘书，在上海工作。
+     有一个妹妹，小丽，是医生，在杭州。
+     */
+    var json={
+        'name' : '小明',
+        'job'  : '前端',
+        'city' : '北京',
+        'sister' : [
+            {
+                'name' : '小红',
+                'job'  : '秘书',
+                'city' : '上海'
+            },
+            {
+                'name' : '小丽',
+                'job'  : '医生',
+                'city' : '杭州'
+            }
+        ]
+    };
+    alert(json['sister'][1]['city']);
+</script>
+<script>
+    var json={
+        'name' : 'harry',
+        'age'  : 0
+    };
+
+    if (json['age'] == undefined)
+    {
+        alert('没有');
+    }
+    else
+    {
+        alert('有');
+    }
+</script>
+<script>
+    var json={
+        'name' : 'harry',
+    };
+
+    if ('age' in json) // 推荐
+    {
+        alert('有');
+    }
+    else
+    {
+        alert('没有');
+    }
+</script>
+<script>
+    var json={
+        'abc' : 'harry',
+        'age'  : 18,
+        'sex'  : 1
+    };
+
+    for (var name in json) // for in json
+    {
+        // name json下标
+        // alert(name);
+        // name -> age
+        alert(json[name]);
+    }
+</script>
+<script>
+    var json={};
+    // 定义
+    json['衣服']=100;
+
+    // 调用
+    alert(json['衣服']);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -42,12 +42,10 @@
         window.onload=function (){
             var oT=document.getElementById('t1');
             var oBtn=document.getElementById('btn');
-
             oBtn.onclick=function (){
                 var str=oT.value; // 不推荐
                 var arr=str.split('门');
                 alert(arr);
-
                 alert(arr.length-1);
             };
         };

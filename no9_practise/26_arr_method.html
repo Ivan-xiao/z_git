@@ -52,26 +52,26 @@
 
     <script>
         var arr=['a', 'b', 'c', 'd'];
-        arr.splice(3);  //splice();  abc;  删除；
+        arr.splice(3);                  //splice();  abc;  删除；
         alert(arr);
     </script>
 
     <script>
         var arr=['a', 'b', 'c', 'd'];
-        arr.splice(1, 2);  //splice();  ad; 删除；
+        arr.splice(1, 2);               //splice();  ad; 删除；
         alert(arr);
     </script>
 
     <script>
         var arr=['a', 'b', 'c', 'd'];
 
-        arr.splice(1, 2, 'f');   // a f d  替换；
+        arr.splice(1, 2, 'f');           // a f d  替换；
         alert(arr);
     </script>
 
     <script>
         var arr=['a', 'b', 'c', 'd'];
-        arr.splice(3, 0, 'f');  // a b c f d  添加
+        arr.splice(3, 0, 'f');            // a b c f d  添加
         alert(arr);
     </script>
 
@@ -95,7 +95,7 @@
         var arr=[[0], [1], [5], [2]];
         alert(arr);
         // a [0]  b [1]
-        arr.sort(function (a, b){
+        arr.sort(function (a, b){      //sort
             // return 1-5
             return a[0]-b[0];
         });
