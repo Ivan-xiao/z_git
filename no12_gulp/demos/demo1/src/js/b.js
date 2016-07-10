@@ -3,9 +3,9 @@
  * @authors hunger (hunger@jirengu.com)
  * @date    2015-10-22 
  */
-
+var a=2;
 function fun2(){
-	alert('b.js');/******/
+	alert(a);/******/
 }
 fun2();
 

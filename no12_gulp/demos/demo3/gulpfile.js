@@ -5,9 +5,9 @@
  */
 
 var gulp = require('gulp');
-var rev = require('gulp-rev');
-var revReplace = require('gulp-rev-replace');
-var useref = require('gulp-useref');
+var rev = require('gulp-rev'); // ¼Ó°æ±¾ºÅ£»
+var revReplace = require('gulp-rev-replace'); //
+var useref = require('gulp-useref');   // <!-- build:css css/merge.css -->
 var filter = require('gulp-filter');
 var uglify = require('gulp-uglify');
 var csso = require('gulp-csso');

@@ -4,8 +4,9 @@
  * @date    2015-10-22 
  */
 
+var a=1;
 function fun1(){
-	alert('a.js');
+	alert(a);
 }
 fun1();/*******/
 

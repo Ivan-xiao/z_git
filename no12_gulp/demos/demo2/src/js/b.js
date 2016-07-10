@@ -5,6 +5,6 @@
  */
 
 function fun2(){
-	alert('b.js');
+	alert('bfssdfs.js');
 }
 fun2();
