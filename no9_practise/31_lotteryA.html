@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <script>
+        window.onload=function (){
+            var oBtn=document.getElementById('btn');
+            var oDiv=document.getElementById('div1');
+
+
+            oBtn.onclick=function (){
+                var arr=[];
+                // 5个 不重复随机数，1-35、补零、小到大
+                while (arr.length < 5)    //保持5个数；
+                {
+                    var n=toDub(rnd(1, 36));
+
+                    if ( ! findInArr(arr, n))
+                    {
+                        arr.push(n);
+                        // 04
+                    }
+                }
+
+                // ['04', '34']
+                arr.sort(function (a, b){
+                    return a-b;
+                });
+
+                oDiv.innerHTML=arr.join(' ');
+            };
+
+            function rnd(n, m)
+            {
+                return Math.floor(Math.random()*(m-n)+n);
+            }
+
+            function findInArr(arr, n)
+            {
+                for (var i=0; i<arr.length; i++)
+                {
+                    if (arr[i] == n)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+            function toDub(n)
+            {
+                return n<10 ? '0'+n : ''+n;
+            }
+        };
+    </script>
+</head>
+
+<body>
+<input type="button" value="机选" id="btn" />
+<div id="div1"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

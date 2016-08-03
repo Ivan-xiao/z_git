@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com">
+    <meta name="copyright" content="智能社 - zhinengshe.com">
+    <title>智能社 - www.zhinengshe.com</title>
+    <script>
+        window.onload=function (){
+            var oDiv=document.getElementById('div1');
+            var aDiv=getByClass(oDiv, 'box');
+
+            /**************/
+            var oDiv2=document.getElementById('div2');
+            alert(oDiv2.className.split(' '));
+            // 父级 sName
+
+            for (var i=0; i<aDiv.length; i++)
+            {
+                aDiv[i].style.color='red';
+            }
+
+            function getByClass(oParent, sName)
+            {
+                if (oParent.getElementsByClassName)
+                {
+                    return oParent.getElementsByClassName(sName);
+                }
+                else
+                {
+                    var aRes=[];
+                    var aChild=oParent.getElementsByTagName('*');
+
+                    for (var i=0; i<aChild.length; i++)
+                    {
+                        var aTmp=aChild[i].className.split(' ');
+
+                        for (var j=0; j<aTmp.length; j++)
+                        {
+                            if (aTmp[j] == sName)
+                            {
+                                aRes.push(aChild[i]);
+                            }
+                        }
+                    }
+                    return aRes;
+                }
+
+            }
+        };
+    </script>
+</head>
+
+<body>
+<div id="div1">
+    <div class=" box       div1 " id="div2">dididivivivi</div>
+    <div class=" box2">dididivivivi</div>
+    <div class=" box ">dididivivivi</div>
+    <div>
+        <span class="box">spspspspspsps</span>
+        dididivivivi
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

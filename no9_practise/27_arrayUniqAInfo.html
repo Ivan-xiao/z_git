@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="智能社 - zhinengshe.com" />
+    <meta name="copyright" content="智能社 - zhinengshe.com" />
+    <title>智能社 - www.zhinengshe.com</title>
+    <style>
+        body {text-align:center;}
+    </style>
+    <script>
+        window.onload=function (){
+            var oT1=document.getElementById('txt1');
+            var oT2=document.getElementById('txt2');
+            var oBtn=document.getElementById('btn1');
+
+            oBtn.onclick=function (){
+                var str=oT1.value;
+                //alert(str);
+                var arr=str.split(' ');
+                var json={};
+                //alert(arr);
+                // 次数 名字
+                for (var i=0; i<arr.length; i++)
+                {
+                    var sName=arr[i]; // 名称 衣服
+
+                    if (sName in json)
+                    {
+                        // 有
+                        json[sName]++; //json[sName]=json[sName]+1;
+                    }
+                    else
+                    {
+                        // 没有
+                        json[sName]=1;
+                    }
+                }
+
+                alert(JSON.stringify(json));
+                // {"衣服":4,"运动鞋":1,"篮球鞋":1,"跑步鞋":5,"休闲鞋":4,"帆布鞋":4,"足球鞋":1}
+                var arr2=[];
+                var arr3=[];
+
+                // ['衣服（4）', '鞋子（5）']
+                for (var name in json)
+                {
+                    // 衣服(4)
+                    arr2.push(name+'('+json[name]+')');
+                    arr3.push(name);
+                }
+
+                alert(arr2);
+                alert(arr3);
+                // 衣服（4）\n鞋子（5）
+                oT2.value=arr2.join('\n');
+
+
+                // 衣服,运动鞋,篮球鞋,跑步鞋,休闲鞋,帆布鞋,足球鞋,衣服,衣服,衣服,跑步鞋,跑步鞋,跑步鞋,跑步鞋,休闲鞋,帆布鞋,休闲鞋,帆布鞋,休闲鞋,帆布鞋
+
+                // {"衣服":4,"运动鞋":1,"篮球鞋":1,"跑步鞋":5,"休闲鞋":4,"帆布鞋":4,"足球鞋":1}
+
+                // ['衣服（4）', '鞋子（5）']
+
+                // 衣服（4）\n鞋子（5）
+            };
+        };
+    </script>
+</head>
+
+<body>
+输入原始文本(空格隔开)：<br>
+<textarea style="width:300px; height:200px;" id="txt1">衣服 运动鞋 篮球鞋 跑步鞋 休闲鞋 帆布鞋 足球鞋 衣服 衣服 衣服 跑步鞋 跑步鞋 跑步鞋 跑步鞋 休闲鞋 帆布鞋 休闲鞋 帆布鞋 休闲鞋 帆布鞋</textarea><br>
+<br>
+<input type="button" value="变" id="btn1" /><br>
+<br>
+这里输出结果：<br>
+<textarea style="width:300px; height:200px;" id="txt2"></textarea>
+</body>
+</html>
